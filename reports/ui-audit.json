@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "controls": [
+    "analyze",
+    "add supplier",
+    "approve",
+    "edit conditions",
+    "theme",
+    "evidence",
+    "Table",
+    "Metrics",
+    "Charts"
+  ],
+  "widths": [
+    390,
+    768,
+    1440
+  ],
+  "english_only": true,
+  "no_horizontal_page_overflow": true,
+  "javascript_errors": [],
+  "cold_restart_persistence": true,
+  "execution": "real Docker, local deterministic explanation",
+  "public_deployment": "BLOCKED: not provisioned"
+}

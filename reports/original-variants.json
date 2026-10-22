@@ -1,0 +1,42 @@
+{
+  "original_unit_tests": 15,
+  "original_unit_result": "PASS",
+  "variants": [
+    {
+      "variant": 1,
+      "port": 8001,
+      "served": true,
+      "controls_present": true,
+      "selected_for_release": false
+    },
+    {
+      "variant": 2,
+      "port": 8002,
+      "served": true,
+      "controls_present": true,
+      "selected_for_release": false
+    },
+    {
+      "variant": 3,
+      "port": 8003,
+      "served": true,
+      "controls_present": true,
+      "selected_for_release": true
+    },
+    {
+      "variant": 4,
+      "port": 8004,
+      "served": true,
+      "controls_present": true,
+      "selected_for_release": false
+    },
+    {
+      "variant": 5,
+      "port": 8005,
+      "served": true,
+      "controls_present": true,
+      "selected_for_release": false
+    }
+  ],
+  "release": "Only original variant 3, with targeted acceptance fixes."
+}

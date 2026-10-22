@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "limit_enforced": true,
+  "container_destroyed": true,
+  "host_continues": true,
+  "next_task_passed": true,
+  "observed": {
+    "memory.max": "134217728",
+    "memory.swap.max": "0",
+    "pids.max": "64",
+    "cpu.max": "50000 100000",
+    "environment_names": [
+      "GPG_KEY",
+      "HOME",
+      "HOSTNAME",
+      "LC_CTYPE",
+      "PATH",
+      "PYTHON_SHA256",
+      "PYTHON_VERSION"
+    ],
+    "secret_present": false,
+    "cpu_seconds": 4
+  },
+  "policy_observed": true,
+  "duration_seconds": 9.95,
+  "recovery": {
+    "run_id": "1443f351e2c7",
+    "backend": "docker",
+    "contained": true,
+    "network": "disabled",
+    "memory_limit": "128 MiB",
+    "cpu_limit": "0.50 CPU",
+    "pids_limit": 64,
+    "lifecycle": "destroyed after task",
+    "exit_code": 0,
+    "duration_ms": 4018.74,
+    "output_sha256": "b78205d0868367d86063ffbd3f0fc0fc4701de67dcb36d71388e1181c44b4236"
+  }
+}

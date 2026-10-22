@@ -1,0 +1,3 @@
+# Runtime dependencies: Python standard library only
+# Development / acceptance test runner
+pytest>=8,<10

@@ -1,0 +1,12 @@
+{$DEMO_DOMAIN} {
+    encode gzip
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+        Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'"
+    }
+    request_body {
+        max_size 128KB
+    }
+    reverse_proxy 127.0.0.1:8003
+}

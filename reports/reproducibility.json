@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "fresh_export": true,
+  "files_copied": 52,
+  "no_prior_database": true,
+  "isolated_python": true,
+  "real_docker_workflow": true,
+  "new_process_readback": true,
+  "python": "3.13.1",
+  "sandbox_image_id": "sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f"
+}

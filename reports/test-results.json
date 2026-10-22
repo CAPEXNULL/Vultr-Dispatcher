@@ -1,0 +1,19 @@
+{
+  "local_acceptance": "PASS",
+  "overall_submission": "BLOCKED",
+  "tests": 333,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 115.401,
+  "independent_scenarios": 299,
+  "scenario_failures": 0,
+  "scenario_backend": "fresh local subprocess per run, fresh database per scenario",
+  "docker_evidence": "Separate real Docker solver, timeout, resource policy, secret exclusion and cleanup tests",
+  "remaining": [
+    "Vultr VM access",
+    "Vultr inference key/model",
+    "public HTTPS endpoint and public E2E/cold restart",
+    "recorded and uploaded demo video",
+    "participant lablab enrollment and final submission"
+  ]
+}

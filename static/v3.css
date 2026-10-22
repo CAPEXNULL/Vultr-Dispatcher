@@ -1,0 +1,10 @@
+@import url('/static/ui-common.css');
+.hero-v3{background-image:url('/static/v3-banner.jpg')}
+:root{--accent:#8b5cf6}.hero-v3{background-position:center 55%}.lane{border-left:4px solid var(--accent);border-radius:8px}.flow-rail{margin:0 0 16px}.card{border-radius:12px}
+.lane-body,.run-grid>.card{min-width:0}
+.charts-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
+.charts-dashboard>section{min-width:0;background:var(--surface2)}
+.donut:before{background:var(--surface2)}
+.section-head>div,.run-status>div{min-width:0}
+#runTitle{overflow-wrap:anywhere}
+@media(max-width:560px){.charts-dashboard{grid-template-columns:minmax(0,1fr)}.metric-line{grid-template-columns:65px minmax(0,1fr) 65px}.theme-toggle{position:relative;float:right;margin:12px;top:auto;right:auto}.hero-content{clear:both}.choice-metrics span{max-width:100%;overflow-wrap:anywhere}}
