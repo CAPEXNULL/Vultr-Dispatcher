@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "files_scanned": 74,
+  "files_scanned": 75,
   "findings": [],
   "manifest": [
     {
@@ -25,11 +25,11 @@
     },
     {
       "file": "README.md",
-      "sha256": "5de13cdb29f87393ac54f656e70949a6cb97a221dc1960a47b224543e22861bb"
+      "sha256": "efa896e728bfe5073cba964ddb74f0976e88cfde1abe6016a1775bfca06dd22e"
     },
     {
       "file": "SUBMISSION.md",
-      "sha256": "ddfe8ebb38c960396c21b4f6bfc96e2ae3863c226f226e6d451395ab36042dd6"
+      "sha256": "c39a5725c03a853e4e464d71258a67316b6262082058a52055df88458a50f21d"
     },
     {
       "file": "TEST_PLAN.md",
@@ -65,7 +65,7 @@
     },
     {
       "file": "docs/COMPETITION.md",
-      "sha256": "719f1949dd00fad2a24264ae60c702e002f73ecdbe630a8591d70d4cbad6f09d"
+      "sha256": "1f505a48acaacbfc09a3daad595a5f55454a2a16d44bf73818f2e54ef86ca950"
     },
     {
       "file": "docs/VIDEO_NARRATION_RU.md",
@@ -137,7 +137,7 @@
     },
     {
       "file": "reports/cloud-deployment.json",
-      "sha256": "2b4987995ca469a3b1fabdb90aa070b65c4fa6de0a7b1c0d6646060efe1b29b0"
+      "sha256": "494391b432ca8bf9ffd003b06da2789cf9754e27dc0aa5f7860c683d4acd6d21"
     },
     {
       "file": "reports/cloud-evidence/README.md",
@@ -166,6 +166,10 @@
     {
       "file": "reports/containment.json",
       "sha256": "caf2bff26afacb236c0a8cc5ede6458bef5d71122cd40bacf57951eb92103766"
+    },
+    {
+      "file": "reports/final-readiness.json",
+      "sha256": "2b6f0debbb4b1c780288430b411dcf6d09b16d141db1ccab07982a470a1bebf5"
     },
     {
       "file": "reports/original-variants.json",

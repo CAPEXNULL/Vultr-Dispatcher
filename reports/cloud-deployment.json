@@ -391,7 +391,6 @@
   "limitations": [
     "Shared synthetic demo; no real ERP or procurement integration",
     "Final video is edited and narrated; it includes actual ordered public UI actions with visible clicks and recorded remote evidence at observed timing",
-    "Public video URL and final competition submission remain outstanding",
     "Final authenticated lablab submission remains outstanding."
   ],
   "recordings": [
@@ -411,5 +410,8 @@
     "watch_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/",
     "pdf_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Pitch.pdf",
     "cover_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Cover.png"
-  }
+  },
+  "submission_track": "Challenge 2: Powering the Future of Work",
+  "platform_track_selection": "NOT_UPDATED",
+  "current_readiness_report": "reports/final-readiness.json"
 }

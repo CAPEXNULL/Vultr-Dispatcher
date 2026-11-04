@@ -26,7 +26,7 @@ Vultr, Vultr Serverless Inference, Python, Docker, SQLite, JavaScript, HTML, CSS
 
 ## Category / Track
 
-Challenge 1: Blast Radius Zero. Pattern A: sandboxed code execution with a fixed reviewed solver. Procurement is the business use case. The code does not claim autonomous generation of arbitrary programs.
+Challenge 2: Powering the Future of Work. Procurement and supplier disruption recovery. The application coordinates a multi-step workflow using deterministic supplier selection, AI explanations, buyer approval, durable updates and independent verification. Vultr Serverless Inference and Docker isolation support the deployed workflow.
 
 ## GitHub URL
 
@@ -48,9 +48,13 @@ Final narrated video: 1920x1080, 177.40 seconds, normal voice and playback speed
 
 `output/pdf/Supply-Dispatcher-Pitch.pdf` (12 slides).
 
+Public PDF: https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Pitch.pdf
+
 ## Cover Image
 
 Use the owner-approved `output/media/Supply-Dispatcher-Cover.png`.
+
+Public cover: https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Cover.png
 
 ## Architecture explanation
 
@@ -62,7 +66,7 @@ Autonomous alternative supplier selection and verified order recovery after a su
 
 ## Business value
 
-The buyer receives an explicit comparison under the same constraints, avoids approving an infeasible supplier and can inspect whether the intended update actually persisted. The synthetic sample selects an eligible offer 5,000 below its 120,000 budget. Customer time savings, production ROI and reductions in real supply delays have not been measured.
+The buyer receives a consistent supplier comparison under explicit order requirements, a clear explanation of the best admissible option and control over the final approval. Independent readback confirms the saved result. Verified experience streamlines repeated cases while preserving fresh calculations. In the recorded case, the selected offer costs 1,200 within a 1,500 budget and arrives in four days against a five-day deadline.
 
 ## Participant actions
 

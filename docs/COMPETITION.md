@@ -1,18 +1,30 @@
-# Competition requirements checked 22 October 2026
+# Competition mapping - checked 5 November 2026
 
-Primary sources:
+Primary source: [Official Vultr Agent Rush brief](https://lablab.build/ai-hackathons/vultr-hackathon).
 
-- [Official lablab event page](https://lablab.ai/ai-hackathons/vultr-hackathon)
-- [Official Vultr challenge page](https://community.vultr.com/e/vultr-agent-rush-hackathon)
-- [lablab live event schedule](https://lablab.ai/ai-hackathons/vultr-hackathon/live)
-- [Vultr inference quickstart](https://api.vultrinference.com/docs/get-started/quickstart)
+## Selected submission track
 
-The event is scheduled for 3-8 November 2026. The live schedule lists submission close at 22:00 UTC on 8 November, which is 03:00 on 9 November in Asia/Qyzylorda. The main event schedule section is still marked as to be announced, so verify the deadline and final rules again during the event.
+**Challenge 2: Powering the Future of Work.** The brief explicitly accepts multi-step agentic or rule-based enterprise workflows and lists procurement, vendor comparison and following up on delays as use cases. Supply Dispatcher implements supplier recovery with deterministic comparison, independent verification, AI explanation, buyer approval and a saved order update.
 
-Selected track: Challenge 1, Blast Radius Zero, sandboxed code execution. It requires a backend on a Vultr VM, agent LLM calls through Vultr Serverless Inference and isolated execution. The product dispatches the reviewed deterministic solver rather than generating arbitrary code. Describe this accurately in the submission. Challenge 2 also names procurement as a use case, but does not remove this project's stronger user-specified containment and inference requirements.
+This is the prepared submission choice. The authenticated lablab form has not yet been updated or submitted; that platform state must be confirmed separately.
 
-Required deliverables: public GitHub repository with setup/docs, public web demo, Vultr VM backend, recorded demo with a containment moment and architecture/use-case explanation. The form additionally lists cover image, slide presentation and project descriptions/tags. The event page says submissions must be original and MIT-compliant. This separate public release includes an MIT license. Never copy private project cores into it.
+## Requirement mapping
 
-Registration on lablab and participation in its Discord are required. Teams may have 1-6 people. Enrollment, identity/account verification, acceptance of terms, eligibility declarations and the final submitted claims belong to the participant. No account terms have been accepted by this automation.
+| Requirement | Implementation / evidence |
+| --- | --- |
+| Public web application | HTTPS interface with order entry, supplier offers, analytics, approval and Evidence |
+| Vultr VM backend | Existing Vultr VM runs Python orchestration, SQLite and Docker |
+| Realistic multi-step workflow | Analyze disruption, compare eligible suppliers, verify choice, explain, approve, commit and read back |
+| Vultr central orchestration | Backend controls solver dispatch, inference, decision state and persistence |
+| Public repository and setup | CAPEXNULL/Vultr-Dispatcher, README and deploy/DEPLOYMENT.md |
+| Public application URL | https://supply-dispatcher.80.240.28.98.sslip.io |
+| Recorded video | Public /media/Supply-Dispatcher-Demo-FullHD.mp4; 177.40 seconds, visible real actions |
+| Architecture and use case | README, docs/ARCHITECTURE.md and SUBMISSION.md |
+| Cover and slide presentation | Approved cover and redesigned 12-slide photo-backed PDF, both published |
+| Official platform submission | Pending authenticated lablab form access and final submission confirmation |
 
-Prepared local evidence is distinct from missing cloud evidence. A real recorded video, live inference proof, VM provider evidence and public URL must be supplied before declaring overall PASS. Do not turn a planned deployment diagram into a claim of an existing deployment.
+Vultr Serverless Inference is optional for Challenge 2; this project already uses it. Docker containment and recorded timeout/cleanup/recovery remain implemented features. They do not change the selected business-workflow track.
+
+The event brief does not prescribe a minimum number of test runs, load tests or paid model calls. Saved acceptance evidence includes 333 local tests and 299 independently generated workflow scenarios. Separate cloud evidence verifies live inference, public UI approval, durable readback, service restart, VM reboot and real Docker containment. Historical local reports retain their original context; reports/final-readiness.json is the current pre-submission check.
+
+No new terms or eligibility declarations were accepted during this track/documentation update. Event dates are 3-8 November 2026; verify the actual deadline in the authenticated form before submission.

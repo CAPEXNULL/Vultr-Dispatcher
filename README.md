@@ -52,6 +52,8 @@ Only a verified success enters experience storage. Reuse requires the same produ
 
 ## Vultr infrastructure and inference
 
+The submission targets **Challenge 2: Powering the Future of Work**, with procurement and supplier disruption recovery as the business use case. It coordinates a multi-step workflow using deterministic selection, AI explanations, buyer approval and verified durable updates. See the [competition mapping](docs/COMPETITION.md) and [final readiness checks](reports/final-readiness.json).
+
 Deployment target: a Vultr VM running this backend, Docker and Caddy for HTTPS. All LLM calls use the OpenAI-compatible `https://api.vultrinference.com/v1/chat/completions` endpoint. The LLM explains an already verified selection and cannot choose or update the supplier. Model credentials stay in the backend environment. Applicable experience may avoid an LLM call.
 
 Production startup requires an inference key, model and Docker backend. Production inference failures fail the request rather than silently falling back. Local development without credentials uses a deterministic English explanation and does not count as a verified Vultr integration.

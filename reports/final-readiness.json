@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "date": "2026-11-05",
+  "checked_at_utc": "2026-11-04T23:56:23.727457+00:00",
+  "track": "Challenge 2: Powering the Future of Work",
+  "checks": {
+    "public_health": true,
+    "services_active": true,
+    "ui_and_assets": true,
+    "analysis_and_independent_choice": true,
+    "real_docker": true,
+    "verified_experience": true,
+    "safe_repeated_approval": true,
+    "durable_readback_unchanged": true,
+    "no_delay_no_action": true,
+    "infeasible_offers_handled": true,
+    "invalid_input_rejected": true,
+    "published_assets_match": true
+  },
+  "assets": {
+    "Supply-Dispatcher-Pitch.pdf": true,
+    "Supply-Dispatcher-Cover.png": true,
+    "Supply-Dispatcher-Demo-FullHD.mp4": true
+  },
+  "saved_order": {
+    "order": {
+      "supplier_id": "SUP-A",
+      "total_cost": 1200.0,
+      "eta_days": 4,
+      "status": "UPDATED"
+    }
+  },
+  "new_model_calls": 0,
+  "synthetic_only": true,
+  "full_unchanged_suite_repeated": false,
+  "repository_head_verified_before_update": "dee13960315bcef74b29815587c6b0fabaa7b09b",
+  "technical_readiness": "PASS",
+  "submission_state": "NOT_SUBMITTED",
+  "platform_track_selection": "NOT_UPDATED",
+  "remaining": [
+    "Restore authenticated browser access, select Challenge 2 in the actual lablab form, verify fields and submit."
+  ]
+}
