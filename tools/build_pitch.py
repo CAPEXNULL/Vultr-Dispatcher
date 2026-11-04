@@ -2,9 +2,11 @@
 from pathlib import Path
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
+from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import ParagraphStyle
 import fitz
+import json
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -59,28 +61,84 @@ SLIDES=[
     'Approved orders survived service restart and VM reboot. Cloud workflow and containment recorded.'])
 ]
 
+# Per-photo exposure, chosen after inspecting all twelve originals.
+BACKGROUNDS=[
+ ('marcofedermann-port-6131793_1920.png',.18),
+ ('rgaudet17-truck-3401529_1920.png',.36),
+ ('pexels-kampus-8204322.png',.36),
+ ('erikviktor2005-controleur-aerien-virtual-2243223_1920.png',.25),
+ ('pexels-ron-lach-8681896.png',.44),
+ ('ralphs_fotos-truck-3910170_1920.png',.37),
+ ('schwoaze-highway-3392100_1920.png',.30),
+ ('niklas9416-hamburg-6849995_1920.png',.06),
+ ('pexels-ron-lach-8681899.png',.30),
+ ('papazachariasa-cargo-ship-5724401_1920.png',.25),
+ ('postcardtrip-port-4602964_1920.png',.48),
+ ('dendoktoor-container-ship-6631117_1920.png',.29),
+]
+
+def background(c,out,qa,index):
+    name,opacity=BACKGROUNDS[index]
+    compressed=qa/(Path(name).stem+'.jpg')
+    if (out/name).exists():
+        source=Image.open(out/name).convert('RGB')
+        source.save(compressed,quality=91,optimize=True,subsampling=0)
+    else:
+        source=Image.open(compressed)
+    scale=max(960/source.width,540/source.height)
+    w,h=source.width*scale,source.height*scale
+    c.saveState()
+    clip=c.beginPath();clip.rect(0,0,960,540);c.clipPath(clip,stroke=0,fill=0)
+    c.drawImage(ImageReader(str(compressed)),(960-w)/2,(540-h)/2,w,h)
+    # PDF transparency layers leave the supplied originals untouched.
+    c.setFillColor(HexColor('#04101a'));c.setFillAlpha(opacity);c.rect(0,0,960,540,fill=1,stroke=0)
+    for x in range(0,960,2):
+        t=max(0,(x/960-.28)/.72)
+        alpha=.84*(1-t)**.85+.02
+        c.setFillAlpha(alpha);c.rect(x,0,2,540,fill=1,stroke=0)
+    c.restoreState()
+
 def build():
     out=ROOT/'output/pdf'; out.mkdir(parents=True,exist_ok=True)
+    qa=ROOT/'tmp/pitch';qa.mkdir(parents=True,exist_ok=True)
     pdf=out/'Supply-Dispatcher-Pitch.pdf'
+    # The published PDF carries its own photo assets. A clone can rebuild it
+    # without separately publishing the owner's supplied original image files.
+    missing=[i for i,(name,_) in enumerate(BACKGROUNDS) if not (out/name).exists()]
+    if missing:
+        previous=fitz.open(pdf)
+        for i in missing:
+            name=BACKGROUNDS[i][0];images=previous[i].get_images()
+            if not images:raise RuntimeError('Missing supplied background: '+name)
+            asset=previous.extract_image(images[0][0])
+            (qa/(Path(name).stem+'.jpg')).write_bytes(asset['image'])
+        previous.close()
     c=canvas.Canvas(str(pdf),pagesize=(960,540)); c.setTitle('Supply Dispatcher'); c.setAuthor('Supply Dispatcher contributors')
-    title=ParagraphStyle('title',fontName='Helvetica-Bold',fontSize=34,leading=40,textColor=HexColor('#f5f3ff'))
-    body=ParagraphStyle('body',fontName='Helvetica',fontSize=21,leading=29,textColor=HexColor('#ddd8ed'))
+    title=ParagraphStyle('title',fontName='Helvetica-Bold',fontSize=35,leading=41,textColor=HexColor('#ffffff'))
+    body=ParagraphStyle('body',fontName='Helvetica',fontSize=21,leading=29,textColor=HexColor('#f1f4f6'))
     for index,(heading,sub,lines) in enumerate(SLIDES):
-        c.setFillColor(HexColor('#10101d')); c.rect(0,0,960,540,fill=1,stroke=0)
-        c.setFillColor(HexColor('#8b5cf6')); c.rect(52,458,52,5,fill=1,stroke=0)
-        c.setFont('Helvetica',12); c.setFillColor(HexColor('#b4a3e4')); c.drawString(52,490,sub.upper())
-        p=Paragraph(heading,title); w,h=p.wrap(845,110); assert h<=100
-        p.drawOn(c,52,432-h)
-        y=302 if h<60 else 270
-        for number,line in enumerate(lines,1):
-            c.setFillColor(HexColor('#9c7bfa')); c.setFont('Helvetica-Bold',13); c.drawString(54,y-4,f'{number:02d}')
-            p=Paragraph(line,body); w,h=p.wrap(785,90); assert h<=87
-            p.drawOn(c,102,y+13-h); y-=h+28
-        assert y>55,(index,y)
-        c.setStrokeColor(HexColor('#343047')); c.line(52,48,908,48)
-        c.setFont('Helvetica',10); c.setFillColor(HexColor('#a49bb7'))
-        c.drawString(52,28,'Supply Dispatcher / Vultr Agent Rush 2026')
-        c.drawRightString(908,28,f'{index+1:02d} / 12')
+        background(c,out,qa,index)
+        c.setFont('Helvetica-Bold',11);c.setFillColor(HexColor('#ffbc68'));c.drawString(64,490,'CAPEXNULL / SUPPLY DISPATCHER')
+        if index==0:
+            c.setFillColor(HexColor('#ffffff'));c.setFont('Helvetica-Bold',65);c.drawString(60,380,'Supply')
+            c.setFillColor(HexColor('#ffbc68'));c.drawString(60,309,'Dispatcher')
+            c.setFont('Helvetica',23);c.setFillColor(HexColor('#ffffff'));c.drawString(64,260,sub)
+            y=184
+            for line in lines:
+                c.setFont('Helvetica',20);c.drawString(64,y,line);y-=39
+        else:
+            c.setFont('Helvetica',12);c.setFillColor(HexColor('#ffbc68'));c.drawString(64,448,sub.upper())
+            p=Paragraph(heading,title);w,h=p.wrap(775,110);assert h<=100
+            p.drawOn(c,62,414-h)
+            y=302 if h<60 else 274
+            for line in lines:
+                p=Paragraph(line,body);w,h=p.wrap(715,100);assert h<=87
+                c.setFillColor(HexColor('#ffbc68'));c.setFont('Helvetica-Bold',20);c.drawString(64,y-6,'-')
+                p.drawOn(c,91,y+13-h);y-=h+25
+            assert y>55,(index,y)
+        c.setFont('Helvetica',10);c.setFillColor(HexColor('#e0e7ec'))
+        c.drawString(64,28,'VULTR AGENT RUSH 2026')
+        c.drawRightString(898,28,f'{index+1:02d} / 12')
         c.showPage()
     c.save()
     md=['# Supply Dispatcher pitch deck','', '12-slide source. Cloud deployment verified on 2026-11-05; all demo data is synthetic.','']
@@ -88,7 +146,7 @@ def build():
         md.extend([f'## {i}. {heading}','',sub,'']+['- '+line for line in lines]+[''])
     (ROOT/'PITCH_DECK.md').write_text('\n'.join(md),encoding='utf-8')
     doc=fitz.open(pdf); assert len(doc)==12
-    qa=ROOT/'tmp/pitch'; qa.mkdir(parents=True,exist_ok=True)
+    (qa/'background-design.json').write_text(json.dumps([{'slide':i+1,'image':n,'base_darkening':v,'text_gradient':'0.86 left to 0.02 right'} for i,(n,v) in enumerate(BACKGROUNDS)],indent=2)+'\n')
     sheet=Image.new('RGB',(1440,4*292),'#eeeeee')
     for i,page in enumerate(doc):
         pix=page.get_pixmap(matrix=fitz.Matrix(1,1))

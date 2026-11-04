@@ -125,7 +125,7 @@
     },
     {
       "file": "output/pdf/Supply-Dispatcher-Pitch.pdf",
-      "sha256": "caf67b12b032f42624522e0637704200a7642817fa773ceec4d08a29c0a4cd15"
+      "sha256": "5ad015ac1eb31bae9643cb6682a005e9ec2f399bb91309f1bca10e0a59e2d255"
     },
     {
       "file": "pytest.ini",
@@ -269,7 +269,7 @@
     },
     {
       "file": "tools/build_pitch.py",
-      "sha256": "213d570cd2f2fd5caf55c1d57fb1f7c807e06a22d621b836f9a8f612bfaac70d"
+      "sha256": "29e8a59d29ea6addd3c60a7c4e5fe21016ef50544f16272a0d8110bb1dd5c0fd"
     },
     {
       "file": "tools/build_submission_media.py",
