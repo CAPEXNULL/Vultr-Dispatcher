@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "url": "https://supply-dispatcher.80.240.28.98.sslip.io",
+  "https_verified": true,
+  "javascript_errors": [],
+  "certificate": {
+    "issuer": "YE1",
+    "protocol": "TLS 1.3",
+    "subjectName": "supply-dispatcher.80.240.28.98.sslip.io",
+    "validFrom": 1793826146,
+    "validTo": 1801602145
+  },
+  "analysis": {
+    "status": "PROPOSED",
+    "decision_id": "80ea6dfa9d9a9fa51919a76eabab0ad1",
+    "task": "Replace delayed order CLOUD-UI-20261105-C for 12 \u00d7 SYNTHETIC-GEAR-77",
+    "plan": [
+      "Read the delayed order and supplier offers.",
+      "Compare all supplier offers against the required conditions.",
+      "Validate the result against quantity, budget and delivery deadline.",
+      "Request human approval before changing the order.",
+      "Update the order after approval and confirm the saved result."
+    ],
+    "offers": [
+      {
+        "supplier_id": "SYNTH-A",
+        "product": "SYNTHETIC-GEAR-77",
+        "available_qty": 12,
+        "total_cost": 1200,
+        "eta_days": 4,
+        "admissible": true,
+        "reasons": [
+          "all constraints satisfied"
+        ]
+      },
+      {
+        "supplier_id": "SYNTH-B",
+        "product": "SYNTHETIC-GEAR-77",
+        "available_qty": 20,
+        "total_cost": 1350,
+        "eta_days": 3,
+        "admissible": true,
+        "reasons": [
+          "all constraints satisfied"
+        ]
+      },
+      {
+        "supplier_id": "SYNTH-LATE",
+        "product": "SYNTHETIC-GEAR-77",
+        "available_qty": 12,
+        "total_cost": 900,
+        "eta_days": 8,
+        "admissible": false,
+        "reasons": [
+          "deadline"
+        ]
+      }
+    ],
+    "selected": {
+      "available_qty": 12,
+      "eta_days": 4,
+      "product": "SYNTHETIC-GEAR-77",
+      "supplier_id": "SYNTH-A",
+      "total_cost": 1200.0
+    },
+    "explanation": "SYNTH-A satisfies all constraints by providing the required 12 units at $1,200 (within the $1,500 budget) with a 4-day ETA (within the 5-day deadline). It ranks first among feasible suppliers because it offers the lowest total cost while meeting every quantity, budget, and delivery requirement.",
+    "approval_required": true,
+    "experience_used": false,
+    "llm_called": true,
+    "inference_source": "vultr-serverless-inference",
+    "sandbox": {
+      "run_id": "3baa6d616b9e",
+      "backend": "docker",
+      "contained": true,
+      "network": "disabled",
+      "memory_limit": "128 MiB",
+      "cpu_limit": "0.50 CPU",
+      "pids_limit": 64,
+      "lifecycle": "destroyed after task",
+      "exit_code": 0,
+      "duration_ms": 573.5,
+      "output_sha256": "9a693f3f7300d291b52ddd118f843db4822c7babd8962a170ba8bf48cc4ed139"
+    },
+    "evidence": {
+      "oracle_match": true,
+      "selected_constraint_violations": 0,
+      "decision_applied": false
+    }
+  },
+  "approval": {
+    "status": "VERIFIED",
+    "idempotent": false,
+    "message": "Replacement approved. The order was updated and independently verified.",
+    "order": {
+      "order_id": "CLOUD-UI-20261105-C",
+      "available_qty": 12,
+      "eta_days": 4,
+      "product": "SYNTHETIC-GEAR-77",
+      "supplier_id": "SYNTH-A",
+      "total_cost": 1200.0,
+      "status": "UPDATED"
+    },
+    "evidence": {
+      "verified": true,
+      "selected_constraint_violations": 0,
+      "order_matches_recommendation": true
+    }
+  },
+  "synthetic_only": true
+}

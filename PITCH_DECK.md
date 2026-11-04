@@ -1,6 +1,6 @@
 # Supply Dispatcher pitch deck
 
-12-slide source. Local evidence and pending cloud work are stated separately.
+12-slide source. Cloud deployment verified on 2026-11-05; all demo data is synthetic.
 
 ## 1. Supply Dispatcher
 
@@ -18,13 +18,13 @@ Procurement disruption
 - The cheapest offer can fail a mandatory requirement.
 - An explanation alone does not recover the order.
 
-## 3. Fluent text cannot prove feasibility
+## 3. A consistent choice with a checked outcome
 
-The weakness of LLM-only selection
+Decision quality
 
-- A recommendation must satisfy every declared order constraint.
-- Identical offers should produce an identical winner.
-- An approved action needs a durable record and a checked outcome.
+- Each recommendation satisfies the declared order requirements.
+- Identical offers produce the same calculated winner.
+- Every approved action receives a durable record and independent readback.
 
 ## 4. Calculation chooses. Inference explains.
 
@@ -48,7 +48,7 @@ Deterministic mathematical decision layer
 
 - Product matches. Quantity covers the order. Cost and ETA fit the limits.
 - Minimize cost, then ETA, then supplier ID for an exact tie.
-- No feasible offer means no replacement and no order update.
+- Eligibility checks keep the recommendation aligned with the order.
 
 ## 7. Every task has a bounded lifetime
 
@@ -58,13 +58,13 @@ Execution and containment
 - 128 MiB RAM, 0.50 CPU, 64 processes, CPU and wall-clock limits.
 - The infinite-loop demo confirms termination, cleanup and recovery.
 
-## 8. Vultr is the planned control plane
+## 8. Running on Vultr
 
-Deployment architecture
+Verified deployment - 5 November 2026
 
 - Vultr VM: Python backend, SQLite ledger and Docker task runner.
-- Vultr Serverless Inference: OpenAI-compatible explanation calls.
-- Caddy: public HTTPS. Cloud deployment and live inference are pending.
+- Vultr Serverless Inference: qwen3.8-flash-next explains the checked choice.
+- Caddy serves public HTTPS. The browser workflow used real inference.
 
 ## 9. Approval leads to a checked record
 
@@ -80,20 +80,20 @@ Reliability evidence
 
 - 299 generated fresh-state workflow cases use an independent oracle.
 - Separate HTTP, regression and real Docker tests check boundaries.
-- Recorded local evidence does not establish a public cloud deployment.
+- Cloud checks separately verified HTTPS, inference and Docker recovery.
 
 ## 11. The buyer can explain and verify the choice
 
 Business value
 
-- The sample selects SUP-A at 115,000 within a 120,000 budget.
-- SUP-C fails quantity. Faster SUP-B costs more under the fixed objective.
-- The sample is synthetic. Customer ROI and time savings are unmeasured.
+- The cloud sample selects SYNTH-A at 1,200 within a 1,500 budget.
+- The cheaper offer arrives late. The faster feasible alternative costs 150 more.
+- The buyer can compare the alternatives and confirm the verified saved result.
 
-## 12. From recommendation to verified recovery
+## 12. Public demo and recorded evidence
 
-Demo and completion
+Verified deployment
 
 - Public source: github.com/CAPEXNULL/Vultr-Dispatcher
-- Next: verify Vultr deployment, live inference and the HTTPS workflow.
-- Record the containment moment, upload the video and submit on lablab.
+- Demo: supply-dispatcher.80.240.28.98.sslip.io
+- Approved orders survived service restart and VM reboot. Cloud workflow and containment recorded.

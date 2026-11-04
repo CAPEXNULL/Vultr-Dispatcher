@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "recorded_live": true,
+  "events": [
+    [
+      16.967,
+      "$ containment_demo.py \u0432\u0402\u201d live Vultr VM / service UID\n"
+    ],
+    [
+      17.009,
+      "Starting isolated task: network=none, memory=128 MiB, CPU=0.50, PIDs=64\n"
+    ],
+    [
+      17.024,
+      "Task deliberately loops. Enforcing 5-second wall timeout...\n"
+    ],
+    [
+      22.709,
+      "TIME LIMIT ENFORCED \u0432\u2020\u2019 container removed \u0432\u2020\u2019 next solver task passed\n"
+    ],
+    [
+      22.722,
+      "{\n"
+    ],
+    [
+      22.731,
+      "  \"status\": \"PASS\",\n"
+    ],
+    [
+      22.752,
+      "  \"limit_enforced\": true,\n"
+    ],
+    [
+      22.771,
+      "  \"container_destroyed\": true,\n"
+    ],
+    [
+      22.785,
+      "  \"host_continues\": true,\n"
+    ],
+    [
+      22.81,
+      "  \"next_task_passed\": true,\n"
+    ],
+    [
+      22.824,
+      "  \"observed\": {\n"
+    ],
+    [
+      22.845,
+      "    \"memory.max\": \"134217728\",\n"
+    ],
+    [
+      22.859,
+      "    \"memory.swap.max\": \"0\",\n"
+    ],
+    [
+      22.871,
+      "    \"pids.max\": \"64\",\n"
+    ],
+    [
+      22.889,
+      "    \"cpu.max\": \"50000 100000\",\n"
+    ],
+    [
+      22.903,
+      "    \"environment_names\": [\n"
+    ],
+    [
+      22.921,
+      "      \"GPG_KEY\",\n"
+    ],
+    [
+      22.934,
+      "      \"HOME\",\n"
+    ],
+    [
+      22.953,
+      "      \"HOSTNAME\",\n"
+    ],
+    [
+      22.965,
+      "      \"LANG\",\n"
+    ],
+    [
+      22.981,
+      "      \"PATH\",\n"
+    ],
+    [
+      22.996,
+      "      \"PYTHON_SHA256\",\n"
+    ],
+    [
+      23.008,
+      "      \"PYTHON_VERSION\"\n"
+    ],
+    [
+      23.02,
+      "    ],\n"
+    ],
+    [
+      23.032,
+      "    \"secret_present\": false,\n"
+    ],
+    [
+      23.048,
+      "    \"cpu_seconds\": 4\n"
+    ],
+    [
+      23.062,
+      "  },\n"
+    ],
+    [
+      23.074,
+      "  \"policy_observed\": true,\n"
+    ],
+    [
+      23.085,
+      "  \"duration_seconds\": 5.74,\n"
+    ],
+    [
+      23.103,
+      "  \"recovery\": {\n"
+    ],
+    [
+      23.117,
+      "    \"run_id\": \"0f953934216d\",\n"
+    ],
+    [
+      23.137,
+      "    \"backend\": \"docker\",\n"
+    ],
+    [
+      23.149,
+      "    \"contained\": true,\n"
+    ],
+    [
+      23.17,
+      "    \"network\": \"disabled\",\n"
+    ],
+    [
+      23.185,
+      "    \"memory_limit\": \"128 MiB\",\n"
+    ],
+    [
+      23.203,
+      "    \"cpu_limit\": \"0.50 CPU\",\n"
+    ],
+    [
+      23.219,
+      "    \"pids_limit\": 64,\n"
+    ],
+    [
+      23.238,
+      "    \"lifecycle\": \"destroyed after task\",\n"
+    ],
+    [
+      23.255,
+      "    \"exit_code\": 0,\n"
+    ],
+    [
+      23.273,
+      "    \"duration_ms\": 595.84,\n"
+    ],
+    [
+      23.287,
+      "    \"output_sha256\": \"b78205d0868367d86063ffbd3f0fc0fc4701de67dcb36d71388e1181c44b4236\"\n"
+    ],
+    [
+      23.306,
+      "  }\n"
+    ],
+    [
+      23.323,
+      "}\n"
+    ]
+  ],
+  "result": {
+    "status": "PASS",
+    "limit_enforced": true,
+    "container_destroyed": true,
+    "host_continues": true,
+    "next_task_passed": true,
+    "observed": {
+      "memory.max": "134217728",
+      "memory.swap.max": "0",
+      "pids.max": "64",
+      "cpu.max": "50000 100000",
+      "environment_names": [
+        "GPG_KEY",
+        "HOME",
+        "HOSTNAME",
+        "LANG",
+        "PATH",
+        "PYTHON_SHA256",
+        "PYTHON_VERSION"
+      ],
+      "secret_present": false,
+      "cpu_seconds": 4
+    },
+    "policy_observed": true,
+    "duration_seconds": 5.74,
+    "recovery": {
+      "run_id": "0f953934216d",
+      "backend": "docker",
+      "contained": true,
+      "network": "disabled",
+      "memory_limit": "128 MiB",
+      "cpu_limit": "0.50 CPU",
+      "pids_limit": 64,
+      "lifecycle": "destroyed after task",
+      "exit_code": 0,
+      "duration_ms": 595.84,
+      "output_sha256": "b78205d0868367d86063ffbd3f0fc0fc4701de67dcb36d71388e1181c44b4236"
+    }
+  }
+}

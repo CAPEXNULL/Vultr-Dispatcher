@@ -25,6 +25,18 @@ def test_all_llm_calls_use_fixed_vultr_endpoint(monkeypatch):
     assert observed[0].full_url==BASE_URL+'/chat/completions'
     body=json.loads(observed[0].data)
     assert body['model']=='test-model' and 'English' in body['messages'][0]['content']
+    assert body['max_tokens']==1024 and body['reasoning_effort']=='minimal'
+
+def test_production_empty_explanation_is_rejected(monkeypatch):
+    monkeypatch.setenv('VULTR_SERVERLESS_INFERENCE_API_KEY','test-only-placeholder')
+    monkeypatch.setenv('VULTR_MODEL','test-model')
+    monkeypatch.setenv('REQUIRE_VULTR_INFERENCE','1')
+    class Response:
+        def __enter__(self): return self
+        def __exit__(self,*args): pass
+        def read(self): return json.dumps({'choices':[{'message':{'content':''},'finish_reason':'length'}]}).encode()
+    monkeypatch.setattr('urllib.request.urlopen',lambda *args,**kwargs:Response())
+    with pytest.raises(RuntimeError,match='empty explanation'): explain(payload(),payload()['offers'][0])
 
 def test_production_failure_does_not_silently_fallback(monkeypatch):
     monkeypatch.setenv('VULTR_SERVERLESS_INFERENCE_API_KEY','test-only-placeholder')

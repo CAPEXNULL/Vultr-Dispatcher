@@ -1,21 +1,48 @@
-# Supply Dispatcher demo video
+# Final video: visible action sequence
 
-Target length: about 3 minutes 30 seconds. Record only after the public Vultr deployment and live inference are verified. Replace any pending URL with the real URL. Use synthetic order data and hide credentials, account details and environment-file contents. A script is not a recorded video.
+Actual public-app actions with visible cursor and click markers. Normal speech and playback speed. Synthetic data only.
 
-| Time | Frame / action | English narration |
-| --- | --- | --- |
-| 00:00-00:15 | Product title and delayed current order on the public HTTPS page | “A supplier delay can leave a buyer comparing incompatible offers while an order remains at risk. Supply Dispatcher turns that disruption into a checked recommendation and a verified order update.” |
-| 00:15-00:35 | Show PO-1042, SUP-ORIGINAL, 10 GPU-A100 units, budget 120,000 and seven-day deadline | “This synthetic order needs ten units within seven days. The current supplier has confirmed a delay. We have three alternatives and a fixed budget.” |
-| 00:35-00:55 | Select Analyze disruption. Show decision steps, then completed calculation check | “The backend prepares a task plan and runs the supplier comparison in a disposable container. The task receives only the order and offers. It has no application credentials or network access.” |
-| 00:55-01:15 | Analytics Table, then Metrics, then Charts | “The same offers appear as a table, supplier metrics and charts. SUP-C cannot supply the required quantity. SUP-A and SUP-B meet the order conditions.” |
-| 01:15-01:35 | Recommendation with SUP-A and cost/ETA | “The declared mathematical objective first minimizes total cost, then delivery time, then supplier ID for exact ties. SUP-A wins at 115,000 and six days. SUP-B is faster but more expensive. Vultr Serverless Inference explains the checked choice without changing it.” |
-| 01:35-01:50 | Keep approval button visible and show unchanged order via operator evidence | “The recommendation has not changed the order. A buyer must approve the replacement. A separate verification implementation has already checked the optimum and required conditions.” |
-| 01:50-02:10 | Select Approve replacement. Show confirmed result and expand Evidence | “Approval commits the replacement to the application’s order ledger. A fresh database connection reads back supplier, total cost and delivery time. The result and its evidence survive a restart. This demo does not send a real purchase order to an external supplier.” |
-| 02:10-02:45 | Operator terminal on the identified Vultr VM. Run `python3 containment_demo.py`. Show timeout, policy proof, cleanup and successful next task | “Here is the containment moment. A disposable task deliberately loops forever. The container enforces memory, CPU and process limits. The deadline ends the task, cleanup removes its container, and the next calculation succeeds. The host’s application key is absent inside the task.” |
-| 02:45-03:05 | Sanitized deployment diagram plus verified VM/provider and HTTPS evidence. Never show key values | “The backend runs on a Vultr VM. All model calls go through Vultr Serverless Inference. Docker contains task execution and Caddy provides HTTPS. The evidence separates measured execution from a planned architecture.” |
-| 03:05-03:20 | Test report and selected test categories | “The release includes 299 independent generated workflow cases checked against a separate oracle, plus regression, HTTP and real Docker tests. The report records the actual results and distinguishes local checks from cloud verification.” |
-| 03:20-03:30 | Product and public repository/demo URLs | “Supply Dispatcher gives a buyer a repeatable comparison, explicit approval and a durable verified result. Public setup instructions and evidence make the workflow reproducible.” |
+## 1. Supply Dispatcher
+0.00-11.74 seconds
 
-## Recording checklist
+A delayed supplier puts an order at risk. Watch the complete recovery workflow on the deployed Vultr application, from entering the task to confirming the saved replacement.
 
-Confirm the public URL and real inference first. Start from a fresh demo database or a fresh synthetic order ID to avoid experience suppressing the model call. Keep the full approval transition visible. Capture the containment command and output continuously. Show actual verified cloud evidence, not an account screenshot for an unrelated provider. Read `reports/` before quoting a test count. Upload the finished recording to a supported public or unlisted video host and put that exact URL into the lablab submission.
+## 2. 01 / Define the delayed order
+11.74-33.02 seconds
+
+First, enter the order and product. Set the required quantity, maximum budget, and delivery deadline. Confirm the supplier delay. Here, twelve units must arrive within five days, with a budget of fifteen hundred. These become mandatory conditions for every alternative.
+
+## 3. 02 / Enter supplier alternatives
+33.02-54.86 seconds
+
+Next, enter the supplier offers under those same conditions. Supplier A offers twelve units for twelve hundred in four days. Supplier B is faster but costs more. The cheaper third offer arrives in eight days, which misses the deadline. Now the comparison is ready.
+
+## 4. 03 / Analyze disruption
+54.86-76.14 seconds
+
+Click Analyze disruption. Supply Dispatcher calculates the best admissible supplier and independently verifies the result. Vultr Serverless Inference turns the checked selection into a clear business explanation. The buyer receives a consistent recommendation, with the reasoning and supporting comparison ready for review.
+
+## 5. 04 / Review the recommendation
+76.14-96.58 seconds
+
+Review the comparison before acting. Switch from the table to metrics and charts. The cheapest offer fails the deadline. Supplier A is the lowest cost admissible option, within budget and available quantity. The recommendation shows its cost and delivery time alongside the explanation.
+
+## 6. 05 / Approve and inspect evidence
+96.58-117.66 seconds
+
+Click Approve replacement to confirm the choice. Supply Dispatcher saves the supplier, cost, and delivery time, then independently reads back the committed result. Open Evidence to inspect the completed checks. The green confirmation gives the buyer a verified record of the successful order recovery.
+
+## 7. 06 / Reuse and safe repetition
+117.66-138.94 seconds
+
+Edit conditions returns to the input form. Run the same case again. Verified experience can avoid a repeated model explanation, while calculation and checking still run. Approving the same saved decision again is safe: the order was already updated, so no duplicate update is created.
+
+## 8. Reliable execution
+138.94-161.31 seconds
+
+Supply Dispatcher keeps calculation isolated so the workflow stays responsive. Here, an intentionally looping task is stopped automatically. Its container is cleaned up, the host continues working, and the next calculation succeeds. This automatic recovery keeps a failed task from interrupting subsequent work.
+
+## 9. Supply Dispatcher online
+161.31-177.39 seconds
+
+Supply Dispatcher brings supplier comparison, clear explanations, buyer approval, and verified order recovery into one workflow. Open the application to try it. Public source and setup instructions are available on GitHub.

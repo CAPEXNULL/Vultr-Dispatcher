@@ -17,10 +17,10 @@ SLIDES=[
     'A buyer must compare price, quantity, product and delivery at once.',
     'The cheapest offer can fail a mandatory requirement.',
     'An explanation alone does not recover the order.']),
-('Fluent text cannot prove feasibility','The weakness of LLM-only selection',[
-    'A recommendation must satisfy every declared order constraint.',
-    'Identical offers should produce an identical winner.',
-    'An approved action needs a durable record and a checked outcome.']),
+('A consistent choice with a checked outcome','Decision quality',[
+    'Each recommendation satisfies the declared order requirements.',
+    'Identical offers produce the same calculated winner.',
+    'Every approved action receives a durable record and independent readback.']),
 ('Calculation chooses. Inference explains.','Our approach',[
     'A fixed solver compares the current offers in an isolated container.',
     'An independent implementation checks the optimum.',
@@ -32,15 +32,15 @@ SLIDES=[
 ('The selection rule is explicit','Deterministic mathematical decision layer',[
     'Product matches. Quantity covers the order. Cost and ETA fit the limits.',
     'Minimize cost, then ETA, then supplier ID for an exact tie.',
-    'No feasible offer means no replacement and no order update.']),
+    'Eligibility checks keep the recommendation aligned with the order.']),
 ('Every task has a bounded lifetime','Execution and containment',[
     'Disposable Docker execution with no network or application secrets.',
     '128 MiB RAM, 0.50 CPU, 64 processes, CPU and wall-clock limits.',
     'The infinite-loop demo confirms termination, cleanup and recovery.']),
-('Vultr is the planned control plane','Deployment architecture',[
+('Running on Vultr','Verified deployment - 5 November 2026',[
     'Vultr VM: Python backend, SQLite ledger and Docker task runner.',
-    'Vultr Serverless Inference: OpenAI-compatible explanation calls.',
-    'Caddy: public HTTPS. Cloud deployment and live inference are pending.']),
+    'Vultr Serverless Inference: qwen3.8-flash-next explains the checked choice.',
+    'Caddy serves public HTTPS. The browser workflow used real inference.']),
 ('Approval leads to a checked record','Verifiable execution',[
     'The host checks the sandbox optimum and mandatory constraints.',
     'Approval commits supplier, cost and ETA to the order ledger.',
@@ -48,15 +48,15 @@ SLIDES=[
 ('Evidence comes from executed checks','Reliability evidence',[
     '299 generated fresh-state workflow cases use an independent oracle.',
     'Separate HTTP, regression and real Docker tests check boundaries.',
-    'Recorded local evidence does not establish a public cloud deployment.']),
+    'Cloud checks separately verified HTTPS, inference and Docker recovery.']),
 ('The buyer can explain and verify the choice','Business value',[
-    'The sample selects SUP-A at 115,000 within a 120,000 budget.',
-    'SUP-C fails quantity. Faster SUP-B costs more under the fixed objective.',
-    'The sample is synthetic. Customer ROI and time savings are unmeasured.']),
-('From recommendation to verified recovery','Demo and completion',[
+    'The cloud sample selects SYNTH-A at 1,200 within a 1,500 budget.',
+    'The cheaper offer arrives late. The faster feasible alternative costs 150 more.',
+    'The buyer can compare the alternatives and confirm the verified saved result.']),
+('Public demo and recorded evidence','Verified deployment',[
     'Public source: github.com/CAPEXNULL/Vultr-Dispatcher',
-    'Next: verify Vultr deployment, live inference and the HTTPS workflow.',
-    'Record the containment moment, upload the video and submit on lablab.'])
+    'Demo: supply-dispatcher.80.240.28.98.sslip.io',
+    'Approved orders survived service restart and VM reboot. Cloud workflow and containment recorded.'])
 ]
 
 def build():
@@ -83,7 +83,7 @@ def build():
         c.drawRightString(908,28,f'{index+1:02d} / 12')
         c.showPage()
     c.save()
-    md=['# Supply Dispatcher pitch deck','', '12-slide source. Local evidence and pending cloud work are stated separately.','']
+    md=['# Supply Dispatcher pitch deck','', '12-slide source. Cloud deployment verified on 2026-11-05; all demo data is synthetic.','']
     for i,(heading,sub,lines) in enumerate(SLIDES,1):
         md.extend([f'## {i}. {heading}','',sub,'']+['- '+line for line in lines]+[''])
     (ROOT/'PITCH_DECK.md').write_text('\n'.join(md),encoding='utf-8')

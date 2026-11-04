@@ -7,4 +7,5 @@
 .donut:before{background:var(--surface2)}
 .section-head>div,.run-status>div{min-width:0}
 #runTitle{overflow-wrap:anywhere}
+.value-panel{overflow-y:auto}
 @media(max-width:560px){.charts-dashboard{grid-template-columns:minmax(0,1fr)}.metric-line{grid-template-columns:65px minmax(0,1fr) 65px}.theme-toggle{position:relative;float:right;margin:12px;top:auto;right:auto}.hero-content{clear:both}.choice-metrics span{max-width:100%;overflow-wrap:anywhere}}

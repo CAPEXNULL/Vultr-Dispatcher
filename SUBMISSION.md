@@ -1,6 +1,6 @@
 # lablab submission fields
 
-Prepared in English. Do not submit until the pending infrastructure and video fields are complete. Actual form length limits may require shortening these drafts.
+Final English submission text and published material links. Adapt to the actual form field lengths.
 
 ## Project Title
 
@@ -18,7 +18,7 @@ A separate oracle checks the selected optimum. Vultr Serverless Inference provid
 
 Verified experience can avoid a redundant explanation only when its applicability conditions and the current optimum agree. It never bypasses current constraints or approval. The sandbox policy disables network access, excludes app secrets, caps CPU/RAM/processes and task duration, and destroys the environment after each run. The containment demonstration stops an intentional infinite loop and verifies that a subsequent task still succeeds.
 
-This release is a synthetic procurement demonstration. It does not contact suppliers, place real purchase orders or claim measured customer savings. Local tests and containment evidence are available in the repository. Vultr deployment, live model calls and the public HTTPS demo remain pending until account and inference access are configured and verified.
+Supply Dispatcher is deployed on Vultr with a public HTTPS application. Live inference, independent supplier selection, approval and readback, and automatic task cleanup and recovery were verified on 2026-11-05. The workflow gives the buyer a consistent comparison, clear reasoning and confirmation of the saved result.
 
 ## Technology Tags
 
@@ -34,11 +34,15 @@ https://github.com/CAPEXNULL/Vultr-Dispatcher
 
 ## Demo URL
 
-PENDING: public HTTPS endpoint on an identified Vultr VM. Do not use localhost as a submitted demo URL.
+https://supply-dispatcher.80.240.28.98.sslip.io
 
 ## Video URL
 
-PENDING: record and upload the demonstration using VIDEO_SCRIPT.md after cloud verification.
+https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Demo-FullHD.mp4
+
+Public watch page: https://supply-dispatcher.80.240.28.98.sslip.io/media/
+
+Final narrated video: 1920x1080, 177.40 seconds, normal voice and playback speed. Actual ordered UI actions and visible clicks show the complete workflow.
 
 ## Pitch Deck
 
@@ -46,11 +50,11 @@ PENDING: record and upload the demonstration using VIDEO_SCRIPT.md after cloud v
 
 ## Cover Image
 
-Use `docs/screenshots/current-order.png` or the approved release banner `static/v3-banner.jpg`. The banner comes from the selected existing interface. No new third-party image was added.
+Use the owner-approved `output/media/Supply-Dispatcher-Cover.png`.
 
 ## Architecture explanation
 
-A Vultr VM is the deployment target for the Python orchestration backend. Each confirmed disruption dispatches the fixed supplier solver into a network-disabled disposable Docker container. The host independently checks the optimum, requests its English explanation through Vultr's OpenAI-compatible inference endpoint, and persists a proposal. A separate human approval action updates the local order ledger. A fresh connection verifies the durable result. Caddy terminates public HTTPS. Deployment is prepared but not yet attested by cloud evidence.
+The Python orchestration backend runs on a Vultr VM. Each confirmed disruption dispatches the fixed supplier solver into a network-disabled disposable Docker container. The host independently checks the optimum, requests its English explanation through Vultr's OpenAI-compatible inference endpoint, and persists a proposal. A separate human approval action updates the local order ledger. A fresh connection verifies the durable result. Caddy terminates public HTTPS. A recorded public-browser workflow verified real inference and approval; separate recorded Docker execution verified containment and recovery.
 
 ## Use case
 
@@ -62,4 +66,4 @@ The buyer receives an explicit comparison under the same constraints, avoids app
 
 ## Participant actions
 
-Log into or register on lablab.ai, enroll in the event and required Discord, complete any identity/eligibility declarations and accept applicable terms personally. Verify final event rules and timing, add actual demo and video URLs, upload the PDF/cover image, review all claims and submit. An uploaded video file alone is not a public video URL. The agent has not enrolled, accepted terms or filed a final competition submission.
+Participant enrollment and team creation were previously confirmed. Add the actual demo and public video URLs, upload the approved cover and updated PDF, review all claims and submit. An uploaded video file alone is not a public video URL. Final competition submission has not been confirmed. Repository and final media publication are part of this release. The authenticated lablab form still requires access to complete the final submission.

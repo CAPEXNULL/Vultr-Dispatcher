@@ -1,0 +1,13 @@
+{
+  "selection": "SUP-A",
+  "total_cost": 115000,
+  "eta_days": 6,
+  "independent_verification": true,
+  "durable_readback": true,
+  "repeated_approval_idempotent": true,
+  "experience_reuse_with_recalculation": true,
+  "infeasible_no_replacement": true,
+  "unconfirmed_delay_no_action": true,
+  "backend": "local subprocess, not Docker",
+  "live_vultr_inference": false
+}

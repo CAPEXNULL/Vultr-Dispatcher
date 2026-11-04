@@ -33,8 +33,11 @@ class SandboxRunner:
     def _run_docker(self,work,run_id):
         image=os.getenv('SANDBOX_IMAGE','python:3.13-slim')
         name=f'supply-sbx-{run_id}'
+        # Match the Linux service owner so private task files remain readable
+        # without granting the container DAC override or making them public.
+        identity=['--user',f'{os.getuid()}:{os.getgid()}'] if hasattr(os,'getuid') else []
         cmd=[
-            'docker','run','--name',name,'--rm','--network','none','--memory','128m','--memory-swap','128m','--cpus','0.50','--pids-limit','64',
+            'docker','run',*identity,'--name',name,'--rm','--network','none','--memory','128m','--memory-swap','128m','--cpus','0.50','--pids-limit','64',
             '--cap-drop','ALL','--security-opt','no-new-privileges','--ulimit','cpu=4:4',
             '--read-only','--tmpfs','/tmp:rw,noexec,nosuid,size=32m','-v',f'{work}:/work:rw',
             '-w','/work',image,'python','/work/task.py','/work/input.json','/work/output.json'

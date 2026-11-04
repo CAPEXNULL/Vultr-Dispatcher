@@ -1,0 +1,415 @@
+{
+  "status": "VERIFIED",
+  "verified_date": "2026-11-05",
+  "provider": "Vultr",
+  "url": "https://supply-dispatcher.80.240.28.98.sslip.io",
+  "resources_reused": true,
+  "duplicate_resources_created": false,
+  "synthetic_only": true,
+  "model": "qwen3.8-flash-next",
+  "inference_endpoint": "https://api.vultrinference.com/v1/chat/completions",
+  "image": "python@sha256:ae14d4ce8771606477a81446e7ef429edd6762305fc50c84507c1041fa8285d1",
+  "release_base_commit": "522f37665713d97cd7a49d15142d4bd2d412a640",
+  "deployed_file_sha256": {
+    "app.py": "bfa790e08ce0fde60edc17ffcbc98abb6256783b5ef4b966dd3c38a4da54c2c0",
+    "engine.py": "f5629910963c067fcd04962d4b49b4233ce9ec8b91d90bf4c9129f71cd1a99a0",
+    "dso.py": "0f00df3af2a759622b5d8c33b19c52eb141b3ad4f683b4e26662e4786a80cd5e",
+    "experience.py": "0fef6ddd18a0689de202d2a46dbc0a998ff5a162a75053eaf426ba86b53212cf",
+    "inference.py": "f8418ec132d763197b74c82d9352f5ee0bf6b392db7eb49af41ae43fe405a386",
+    "sandbox_runner.py": "a4f0f8d44b0bbdb5bf0a3caf5b11c873213bad3aec4475f0f5d7c5e4245f89ae",
+    "sandbox_task.py": "8a6efa1e0a7fc11e4c3174b52828503fb0fdbe0bde6266a55ce1954080864620",
+    "verification.py": "793eae8cb4f8a29aa35e7cbb7308c0bb25885b1e5117aa2ee4084af91cc0fea1",
+    "containment_demo.py": "b4b735b1e7a63eb180dd7090af6d741ef4b5f64bb6f3c9d7185b7786ec37b128",
+    "templates/index.html": "9c2ab5dca505ddfce54d98a38d573ee1aa72870f9c693ed4a7e8750d91c2068f",
+    "static/app.js": "51abe0079ee7426336d0e7ab109ead723ca0b135515977282308ff931daf64f4",
+    "static/ui-common.css": "c216930ba3a15debaf0a6191afea111718e7f71f1503372d58136b62ec238839",
+    "static/v3.css": "75d0ba9229036fc569e4bb3c65f9919d3bc33533196b90d4904e3cc4991d8246",
+    "static/v3-banner.jpg": "085b62c7434479a8da99b52aedd7f71e57794addce4e2f9baaed44ca3a994dc9",
+    "deploy/supply-dispatcher.service": "d98d6e09709a3e8ad468da5b67500a90c0afda0e44bfa8ddd8ea929d0237b8f1"
+  },
+  "cloud_e2e": {
+    "status": "PASS",
+    "synthetic_only": true,
+    "analysis": {
+      "status": "PROPOSED",
+      "decision_id": "406e74487b40ce865870e4206ac9c1dc",
+      "task": "Replace delayed order CLOUD-SYNTH-20261105-B for 12 \u00d7 SYNTHETIC-VALVE-42",
+      "plan": [
+        "Read the delayed order and supplier offers.",
+        "Compare all supplier offers against the required conditions.",
+        "Validate the result against quantity, budget and delivery deadline.",
+        "Request human approval before changing the order.",
+        "Update the order after approval and confirm the saved result."
+      ],
+      "offers": [
+        {
+          "supplier_id": "SYNTH-A",
+          "product": "SYNTHETIC-VALVE-42",
+          "available_qty": 12,
+          "total_cost": 1200,
+          "eta_days": 4,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SYNTH-B",
+          "product": "SYNTHETIC-VALVE-42",
+          "available_qty": 20,
+          "total_cost": 1350,
+          "eta_days": 3,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SYNTH-LATE",
+          "product": "SYNTHETIC-VALVE-42",
+          "available_qty": 12,
+          "total_cost": 900,
+          "eta_days": 8,
+          "admissible": false,
+          "reasons": [
+            "deadline"
+          ]
+        }
+      ],
+      "selected": {
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTHETIC-VALVE-42",
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0
+      },
+      "explanation": "SYNTH-A fulfills the order by supplying the exact required quantity of 12 units at $1,200 (within the $1,500 budget) with a 4-day delivery that meets the 5-day deadline. It ranks first because it is the lowest-cost feasible option\u2014SYNTH-LATE is disqualified by its 8-day ETA exceeding the deadline, and SYNTH-B, while feasible, costs $150 more.",
+      "approval_required": true,
+      "experience_used": false,
+      "llm_called": true,
+      "inference_source": "vultr-serverless-inference",
+      "sandbox": {
+        "run_id": "77a188593b25",
+        "backend": "docker",
+        "contained": true,
+        "network": "disabled",
+        "memory_limit": "128 MiB",
+        "cpu_limit": "0.50 CPU",
+        "pids_limit": 64,
+        "lifecycle": "destroyed after task",
+        "exit_code": 0,
+        "duration_ms": 592.45,
+        "output_sha256": "e08a16a08cca6b9ce07cc63a8d85ca57358da008ba5e60293bbaae81a5fa3def"
+      },
+      "evidence": {
+        "oracle_match": true,
+        "selected_constraint_violations": 0,
+        "decision_applied": false
+      }
+    },
+    "approval": {
+      "status": "VERIFIED",
+      "idempotent": false,
+      "message": "Replacement approved. The order was updated and independently verified.",
+      "order": {
+        "order_id": "CLOUD-SYNTH-20261105-B",
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTHETIC-VALVE-42",
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0,
+        "status": "UPDATED"
+      },
+      "evidence": {
+        "verified": true,
+        "selected_constraint_violations": 0,
+        "order_matches_recommendation": true
+      }
+    },
+    "idempotent_approval": {
+      "status": "VERIFIED",
+      "idempotent": true,
+      "message": "Order was already updated and verified.",
+      "order": {
+        "order_id": "CLOUD-SYNTH-20261105-B",
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0,
+        "eta_days": 4,
+        "status": "UPDATED"
+      }
+    },
+    "readback": {
+      "order": {
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0,
+        "eta_days": 4,
+        "status": "UPDATED"
+      }
+    },
+    "trace_before_reuse": [
+      {
+        "event": "PROPOSED",
+        "payload": {
+          "experience_used": false,
+          "llm_called": true,
+          "sandbox_run_id": "77a188593b25",
+          "selected": {
+            "available_qty": 12,
+            "eta_days": 4,
+            "product": "SYNTHETIC-VALVE-42",
+            "supplier_id": "SYNTH-A",
+            "total_cost": 1200.0
+          }
+        },
+        "created_at": 1793829783.896484
+      },
+      {
+        "event": "VERIFIED",
+        "payload": {
+          "order_id": "CLOUD-SYNTH-20261105-B",
+          "selected": {
+            "available_qty": 12,
+            "eta_days": 4,
+            "product": "SYNTHETIC-VALVE-42",
+            "supplier_id": "SYNTH-A",
+            "total_cost": 1200.0
+          },
+          "verified": true
+        },
+        "created_at": 1793829783.9095178
+      }
+    ],
+    "reuse_source": "experience",
+    "checked_at_epoch": 1793829784.518071
+  },
+  "public_ui": {
+    "status": "PASS",
+    "url": "https://supply-dispatcher.80.240.28.98.sslip.io",
+    "https_verified": true,
+    "javascript_errors": [],
+    "certificate": {
+      "issuer": "YE1",
+      "protocol": "TLS 1.3",
+      "subjectName": "supply-dispatcher.80.240.28.98.sslip.io",
+      "validFrom": 1793826146,
+      "validTo": 1801602145
+    },
+    "analysis": {
+      "status": "PROPOSED",
+      "decision_id": "80ea6dfa9d9a9fa51919a76eabab0ad1",
+      "task": "Replace delayed order CLOUD-UI-20261105-C for 12 \u00d7 SYNTHETIC-GEAR-77",
+      "plan": [
+        "Read the delayed order and supplier offers.",
+        "Compare all supplier offers against the required conditions.",
+        "Validate the result against quantity, budget and delivery deadline.",
+        "Request human approval before changing the order.",
+        "Update the order after approval and confirm the saved result."
+      ],
+      "offers": [
+        {
+          "supplier_id": "SYNTH-A",
+          "product": "SYNTHETIC-GEAR-77",
+          "available_qty": 12,
+          "total_cost": 1200,
+          "eta_days": 4,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SYNTH-B",
+          "product": "SYNTHETIC-GEAR-77",
+          "available_qty": 20,
+          "total_cost": 1350,
+          "eta_days": 3,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SYNTH-LATE",
+          "product": "SYNTHETIC-GEAR-77",
+          "available_qty": 12,
+          "total_cost": 900,
+          "eta_days": 8,
+          "admissible": false,
+          "reasons": [
+            "deadline"
+          ]
+        }
+      ],
+      "selected": {
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTHETIC-GEAR-77",
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0
+      },
+      "explanation": "SYNTH-A satisfies all constraints by providing the required 12 units at $1,200 (within the $1,500 budget) with a 4-day ETA (within the 5-day deadline). It ranks first among feasible suppliers because it offers the lowest total cost while meeting every quantity, budget, and delivery requirement.",
+      "approval_required": true,
+      "experience_used": false,
+      "llm_called": true,
+      "inference_source": "vultr-serverless-inference",
+      "sandbox": {
+        "run_id": "3baa6d616b9e",
+        "backend": "docker",
+        "contained": true,
+        "network": "disabled",
+        "memory_limit": "128 MiB",
+        "cpu_limit": "0.50 CPU",
+        "pids_limit": 64,
+        "lifecycle": "destroyed after task",
+        "exit_code": 0,
+        "duration_ms": 573.5,
+        "output_sha256": "9a693f3f7300d291b52ddd118f843db4822c7babd8962a170ba8bf48cc4ed139"
+      },
+      "evidence": {
+        "oracle_match": true,
+        "selected_constraint_violations": 0,
+        "decision_applied": false
+      }
+    },
+    "approval": {
+      "status": "VERIFIED",
+      "idempotent": false,
+      "message": "Replacement approved. The order was updated and independently verified.",
+      "order": {
+        "order_id": "CLOUD-UI-20261105-C",
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTHETIC-GEAR-77",
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0,
+        "status": "UPDATED"
+      },
+      "evidence": {
+        "verified": true,
+        "selected_constraint_violations": 0,
+        "order_matches_recommendation": true
+      }
+    },
+    "synthetic_only": true
+  },
+  "containment": {
+    "status": "PASS",
+    "limit_enforced": true,
+    "container_destroyed": true,
+    "host_continues": true,
+    "next_task_passed": true,
+    "observed": {
+      "memory.max": "134217728",
+      "memory.swap.max": "0",
+      "pids.max": "64",
+      "cpu.max": "50000 100000",
+      "environment_names": [
+        "GPG_KEY",
+        "HOME",
+        "HOSTNAME",
+        "LANG",
+        "PATH",
+        "PYTHON_SHA256",
+        "PYTHON_VERSION"
+      ],
+      "secret_present": false,
+      "cpu_seconds": 4
+    },
+    "policy_observed": true,
+    "duration_seconds": 5.74,
+    "recovery": {
+      "run_id": "0f953934216d",
+      "backend": "docker",
+      "contained": true,
+      "network": "disabled",
+      "memory_limit": "128 MiB",
+      "cpu_limit": "0.50 CPU",
+      "pids_limit": 64,
+      "lifecycle": "destroyed after task",
+      "exit_code": 0,
+      "duration_ms": 595.84,
+      "output_sha256": "b78205d0868367d86063ffbd3f0fc0fc4701de67dcb36d71388e1181c44b4236"
+    }
+  },
+  "persistence": {
+    "service_restart": "PASS",
+    "vm_reboot": "PASS",
+    "boot_id_changed": true,
+    "services_active": [
+      "active",
+      "active",
+      "active"
+    ],
+    "orders": {
+      "CLOUD-SYNTH-20261105-B": {
+        "order": {
+          "supplier_id": "SYNTH-A",
+          "total_cost": 1200.0,
+          "eta_days": 4,
+          "status": "UPDATED"
+        }
+      },
+      "CLOUD-UI-20261105-C": {
+        "order": {
+          "supplier_id": "SYNTH-A",
+          "total_cost": 1200.0,
+          "eta_days": 4,
+          "status": "UPDATED"
+        }
+      }
+    },
+    "manifest_match": true
+  },
+  "public_security": {
+    "status": "PASS",
+    "public_https_health": true,
+    "private_paths": {
+      "/.env": 404,
+      "/dispatcher.db": 404,
+      "/app.py": 404,
+      "/etc/supply-dispatcher.env": 404
+    },
+    "backend_port_publicly_accessible": false,
+    "persisted_order": {
+      "order": {
+        "supplier_id": "SYNTH-A",
+        "total_cost": 1200.0,
+        "eta_days": 4,
+        "status": "UPDATED"
+      }
+    }
+  },
+  "inference_attempts": {
+    "total": 4,
+    "first": "empty explanation; failed acceptance before approval",
+    "fix": "max_tokens=1024, reasoning_effort=minimal, reject empty content",
+    "recheck": "PASS",
+    "public_browser": "PASS",
+    "provider_token_usage": null,
+    "action_recording": "PASS; one fresh synthetic call, repeat used experience"
+  },
+  "limitations": [
+    "Shared synthetic demo; no real ERP or procurement integration",
+    "Final video is edited and narrated; it includes actual ordered public UI actions with visible clicks and recorded remote evidence at observed timing",
+    "Public video URL and final competition submission remain outstanding",
+    "Final authenticated lablab submission remains outstanding."
+  ],
+  "recordings": [
+    "reports/cloud-evidence/Supply-Dispatcher-Cloud-Workflow.mp4",
+    "reports/cloud-evidence/Supply-Dispatcher-Cloud-Containment.mp4"
+  ],
+  "final_media": {
+    "video": "output/media/Supply-Dispatcher-Demo-FullHD.mp4",
+    "duration_seconds": 177.4,
+    "pdf": "output/pdf/Supply-Dispatcher-Pitch.pdf",
+    "evidence_dir": "reports/cloud-evidence/",
+    "revision": "Actual ordered actions with visible pointer/click markers; white pre-roll removed"
+  },
+  "action_video_evidence": "reports/cloud-evidence/action-workflow.json",
+  "public_media": {
+    "video_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Demo-FullHD.mp4",
+    "watch_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/",
+    "pdf_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Pitch.pdf",
+    "cover_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Cover.png"
+  }
+}

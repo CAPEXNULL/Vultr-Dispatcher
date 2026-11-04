@@ -1,0 +1,226 @@
+{
+  "status": "PASS",
+  "url": "https://supply-dispatcher.80.240.28.98.sslip.io",
+  "synthetic_only": true,
+  "events": [
+    {
+      "stage": 1,
+      "label": "01 / Define the delayed order",
+      "actual_seconds": 20.905
+    },
+    {
+      "stage": 2,
+      "label": "02 / Enter supplier alternatives",
+      "actual_seconds": 20.127
+    },
+    {
+      "stage": 3,
+      "label": "03 / Analyze disruption",
+      "actual_seconds": 21.06
+    },
+    {
+      "stage": 4,
+      "label": "04 / Review the recommendation",
+      "actual_seconds": 20.327
+    },
+    {
+      "stage": 5,
+      "label": "05 / Approve and inspect evidence",
+      "actual_seconds": 20.875
+    },
+    {
+      "stage": 6,
+      "label": "06 / Reuse and safe repetition",
+      "actual_seconds": 20.942
+    }
+  ],
+  "proof": {
+    "analysis": {
+      "status": "PROPOSED",
+      "decision_id": "c7aff10fa0860f547b6b0b7708de1daa",
+      "task": "Replace delayed order CLOUD-ACTION-20261105-D for 12 \u00d7 SYNTH-PUMP-88",
+      "plan": [
+        "Read the delayed order and supplier offers.",
+        "Compare all supplier offers against the required conditions.",
+        "Validate the result against quantity, budget and delivery deadline.",
+        "Request human approval before changing the order.",
+        "Update the order after approval and confirm the saved result."
+      ],
+      "offers": [
+        {
+          "supplier_id": "SUP-A",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 12,
+          "total_cost": 1200,
+          "eta_days": 4,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SUP-B",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 20,
+          "total_cost": 1350,
+          "eta_days": 3,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SUP-LATE",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 12,
+          "total_cost": 900,
+          "eta_days": 8,
+          "admissible": false,
+          "reasons": [
+            "deadline"
+          ]
+        }
+      ],
+      "selected": {
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTH-PUMP-88",
+        "supplier_id": "SUP-A",
+        "total_cost": 1200.0
+      },
+      "explanation": "SUP-A meets all order constraints\u2014delivering the required 12 units within the 5-day deadline at $1,200, well under the $1,500 budget cap. It ranks first because it offers the lowest total cost among all feasible suppliers, undercutting SUP-B by $150 while still arriving on time.",
+      "approval_required": true,
+      "experience_used": false,
+      "llm_called": true,
+      "inference_source": "vultr-serverless-inference",
+      "sandbox": {
+        "run_id": "9b6c26bd7d9e",
+        "backend": "docker",
+        "contained": true,
+        "network": "disabled",
+        "memory_limit": "128 MiB",
+        "cpu_limit": "0.50 CPU",
+        "pids_limit": 64,
+        "lifecycle": "destroyed after task",
+        "exit_code": 0,
+        "duration_ms": 787.29,
+        "output_sha256": "6a6b3aae28377f0196b32c1ba7d61ad05b1ab8124b51c5a6630dc8e7b2cf9511"
+      },
+      "evidence": {
+        "oracle_match": true,
+        "selected_constraint_violations": 0,
+        "decision_applied": false
+      }
+    },
+    "approval": {
+      "status": "VERIFIED",
+      "idempotent": false,
+      "message": "Replacement approved. The order was updated and independently verified.",
+      "order": {
+        "order_id": "CLOUD-ACTION-20261105-D",
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTH-PUMP-88",
+        "supplier_id": "SUP-A",
+        "total_cost": 1200.0,
+        "status": "UPDATED"
+      },
+      "evidence": {
+        "verified": true,
+        "selected_constraint_violations": 0,
+        "order_matches_recommendation": true
+      }
+    },
+    "reuse": {
+      "status": "PROPOSED",
+      "decision_id": "c7aff10fa0860f547b6b0b7708de1daa",
+      "task": "Replace delayed order CLOUD-ACTION-20261105-D for 12 \u00d7 SYNTH-PUMP-88",
+      "plan": [
+        "Read the delayed order and supplier offers.",
+        "Compare all supplier offers against the required conditions.",
+        "Validate the result against quantity, budget and delivery deadline.",
+        "Request human approval before changing the order.",
+        "Update the order after approval and confirm the saved result."
+      ],
+      "offers": [
+        {
+          "supplier_id": "SUP-A",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 12,
+          "total_cost": 1200,
+          "eta_days": 4,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SUP-B",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 20,
+          "total_cost": 1350,
+          "eta_days": 3,
+          "admissible": true,
+          "reasons": [
+            "all constraints satisfied"
+          ]
+        },
+        {
+          "supplier_id": "SUP-LATE",
+          "product": "SYNTH-PUMP-88",
+          "available_qty": 12,
+          "total_cost": 900,
+          "eta_days": 8,
+          "admissible": false,
+          "reasons": [
+            "deadline"
+          ]
+        }
+      ],
+      "selected": {
+        "available_qty": 12,
+        "eta_days": 4,
+        "product": "SYNTH-PUMP-88",
+        "supplier_id": "SUP-A",
+        "total_cost": 1200.0
+      },
+      "explanation": "SUP-A is the lowest-cost admissible option at 1200, with delivery in 4 days and sufficient quantity. The recommendation is based on a previously successful comparable replacement.",
+      "approval_required": true,
+      "experience_used": true,
+      "llm_called": false,
+      "inference_source": "experience",
+      "sandbox": {
+        "run_id": "81493a2c7c9f",
+        "backend": "docker",
+        "contained": true,
+        "network": "disabled",
+        "memory_limit": "128 MiB",
+        "cpu_limit": "0.50 CPU",
+        "pids_limit": 64,
+        "lifecycle": "destroyed after task",
+        "exit_code": 0,
+        "duration_ms": 563.5,
+        "output_sha256": "6a6b3aae28377f0196b32c1ba7d61ad05b1ab8124b51c5a6630dc8e7b2cf9511"
+      },
+      "evidence": {
+        "oracle_match": true,
+        "selected_constraint_violations": 0,
+        "decision_applied": false
+      }
+    },
+    "repeated_approval": {
+      "status": "VERIFIED",
+      "idempotent": true,
+      "message": "Order was already updated and verified.",
+      "order": {
+        "order_id": "CLOUD-ACTION-20261105-D",
+        "supplier_id": "SUP-A",
+        "total_cost": 1200.0,
+        "eta_days": 4,
+        "status": "UPDATED"
+      }
+    }
+  },
+  "javascript_errors": [],
+  "paid_model_calls": 1
+}

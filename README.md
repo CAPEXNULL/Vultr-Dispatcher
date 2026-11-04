@@ -56,7 +56,7 @@ Deployment target: a Vultr VM running this backend, Docker and Caddy for HTTPS. 
 
 Production startup requires an inference key, model and Docker backend. Production inference failures fail the request rather than silently falling back. Local development without credentials uses a deterministic English explanation and does not count as a verified Vultr integration.
 
-**Public demo URL:** not provisioned. **Vultr VM and live inference:** blocked pending account/VM access and inference credentials. No cloud deployment is claimed by local test results.
+**Public demo:** https://supply-dispatcher.80.240.28.98.sslip.io . The Vultr VM, live Serverless Inference (`qwen3.8-flash-next`), public HTTPS workflow and Docker containment were verified on 2026-11-05 with synthetic data. See [cloud verification](reports/cloud-deployment.json) for evidence and limits.
 
 ## Sandbox and containment
 
@@ -128,7 +128,7 @@ Order `PO-1042` needs 10 GPU-A100 units within seven days, budget 120,000. Curre
 
 ## Submission materials
 
-[Video script](VIDEO_SCRIPT.md), [submission fields](SUBMISSION.md), [pitch deck](output/pdf/Supply-Dispatcher-Pitch.pdf), [architecture](docs/ARCHITECTURE.md), [competition requirements](docs/COMPETITION.md) and [deployment guide](deploy/DEPLOYMENT.md). The recorded video and live demo must be completed before final submission.
+[Video script](VIDEO_SCRIPT.md), [submission fields](SUBMISSION.md), [pitch deck](output/pdf/Supply-Dispatcher-Pitch.pdf), [architecture](docs/ARCHITECTURE.md), [competition requirements](docs/COMPETITION.md) and [deployment guide](deploy/DEPLOYMENT.md). The final narrated `output/media/Supply-Dispatcher-Demo-FullHD.mp4` shows the actual sequence of cloud UI actions with visible clicks, plus recorded containment evidence (177.40 seconds, normal voice speed). The PDF reflects verified deployment. Original cloud sources and timed evidence are retained in `reports/cloud-evidence/`. Watch the [final video](https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Demo-FullHD.mp4) or open the [public video page](https://supply-dispatcher.80.240.28.98.sslip.io/media/). Final competition submission remains outstanding.
 
 ## Technologies and license
 

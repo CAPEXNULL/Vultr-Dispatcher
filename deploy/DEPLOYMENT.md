@@ -1,6 +1,6 @@
 # Vultr VM deployment
 
-Status: prepared, not yet deployed. A Vultr API credential or an identified Vultr VM with SSH access, an inference key/model and a DNS name are required. Never infer a provider from an unrelated SSH entry.
+Status: deployed and verified on 2026-11-05 at https://supply-dispatcher.80.240.28.98.sslip.io using the existing Vultr VM and Inference subscription. See `reports/cloud-deployment.json`. The following steps document reproduction; do not provision duplicate resources when resuming the existing demo.
 
 Use a clean Ubuntu VM on Vultr with Docker, Python 3.11+ and Caddy from their official repositories. Open ports 80/443, restrict SSH to the operator, and keep 8003 bound to loopback. Point the demo domain's DNS A record to this VM.
 
@@ -9,6 +9,8 @@ Use a clean Ubuntu VM on Vultr with Docker, Python 3.11+ and Caddy from their of
 3. Pull `python:3.13-slim`, record the digest and set `SANDBOX_IMAGE` to the digest for repeatability. No Python runtime dependencies are needed by the backend.
 4. Copy `.env.example` to `/etc/supply-dispatcher.env` owned by root, mode 0600. Set the real inference key/model. EnvironmentFile is loaded by systemd, not by the application. Do not commit this file.
 5. Copy `deploy/supply-dispatcher.service` to `/etc/systemd/system/`. Create `/var/lib/supply-dispatcher` owned by the service user. Run `systemctl daemon-reload` and `systemctl enable --now supply-dispatcher`.
+
+   The unit creates `/run/supply-dispatcher` as a private writable runtime directory and sets `TMPDIR` there. The Docker task uses the Linux service UID/GID so it can read private task files and return artifacts without extra capabilities. The deployed image is pinned to its recorded digest.
 6. Set `DEMO_DOMAIN` in Caddy's systemd environment, install `deploy/Caddyfile` as `/etc/caddy/Caddyfile`, validate it with `caddy validate`, then restart Caddy. Caddy obtains a publicly trusted certificate when DNS and ports are correct.
 7. Access the HTTPS URL. Run analysis, approve, read back `/api/order/PO-1042`, and save the trace. Confirm the response reports `inference_source=vultr-serverless-inference` for a new order without applicable experience.
 8. Run `python3 containment_demo.py` on the VM with Docker access. Save the observed cgroup limits and cleanup evidence. This CLI is intentionally not an unauthenticated HTTP endpoint.
