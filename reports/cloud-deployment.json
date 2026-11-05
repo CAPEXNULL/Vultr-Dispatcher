@@ -390,8 +390,7 @@
   },
   "limitations": [
     "Shared synthetic demo; no real ERP or procurement integration",
-    "Final video is edited and narrated; it includes actual ordered public UI actions with visible clicks and recorded remote evidence at observed timing",
-    "Final authenticated lablab submission remains outstanding."
+    "Final video is edited and narrated; it includes actual ordered public UI actions with visible clicks and recorded remote evidence at observed timing"
   ],
   "recordings": [
     "reports/cloud-evidence/Supply-Dispatcher-Cloud-Workflow.mp4",
@@ -412,6 +411,9 @@
     "cover_url": "https://supply-dispatcher.80.240.28.98.sslip.io/media/Supply-Dispatcher-Cover.png"
   },
   "submission_track": "Challenge 2: Powering the Future of Work",
-  "platform_track_selection": "NOT_UPDATED",
-  "current_readiness_report": "reports/final-readiness.json"
+  "platform_track_selection": "NOT_INDEPENDENTLY_VERIFIED",
+  "current_readiness_report": "reports/final-readiness.json",
+  "submission_state": "SUBMITTED_CONFIRMED_BY_OWNER_SCREENSHOT",
+  "submission_confirmation_date": "2026-11-05",
+  "submitted_track_text": "Powering the Future of Work"
 }

@@ -6,7 +6,7 @@ Primary source: [Official Vultr Agent Rush brief](https://lablab.build/ai-hackat
 
 **Challenge 2: Powering the Future of Work.** The brief explicitly accepts multi-step agentic or rule-based enterprise workflows and lists procurement, vendor comparison and following up on delays as use cases. Supply Dispatcher implements supplier recovery with deterministic comparison, independent verification, AI explanation, buyer approval and a saved order update.
 
-This is the prepared submission choice. The authenticated lablab form has not yet been updated or submitted; that platform state must be confirmed separately.
+The project was successfully submitted on lablab, confirmed by the platform success screen supplied by the participant on 2026-11-05. Powering the Future of Work was specified in the submitted additional information. A separate platform track selector was not independently observed.
 
 ## Requirement mapping
 
@@ -21,7 +21,7 @@ This is the prepared submission choice. The authenticated lablab form has not ye
 | Recorded video | Public /media/Supply-Dispatcher-Demo-FullHD.mp4; 177.40 seconds, visible real actions |
 | Architecture and use case | README, docs/ARCHITECTURE.md and SUBMISSION.md |
 | Cover and slide presentation | Approved cover and redesigned 12-slide photo-backed PDF, both published |
-| Official platform submission | Pending authenticated lablab form access and final submission confirmation |
+| Official platform submission | Successfully submitted; platform confirmation supplied by participant |
 
 Vultr Serverless Inference is optional for Challenge 2; this project already uses it. Docker containment and recorded timeout/cleanup/recovery remain implemented features. They do not change the selected business-workflow track.
 

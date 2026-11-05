@@ -68,6 +68,6 @@ Autonomous alternative supplier selection and verified order recovery after a su
 
 The buyer receives a consistent supplier comparison under explicit order requirements, a clear explanation of the best admissible option and control over the final approval. Independent readback confirms the saved result. Verified experience streamlines repeated cases while preserving fresh calculations. In the recorded case, the selected offer costs 1,200 within a 1,500 budget and arrives in four days against a five-day deadline.
 
-## Participant actions
+## Submission status
 
-Participant enrollment and team creation were previously confirmed. Add the actual demo and public video URLs, upload the approved cover and updated PDF, review all claims and submit. An uploaded video file alone is not a public video URL. Final competition submission has not been confirmed. Repository and final media publication are part of this release. The authenticated lablab form still requires access to complete the final submission.
+Successfully submitted to the Vultr Agent Rush Hackathon. The participant supplied the platform success confirmation and the published project page on 2026-11-05. The final video and photo-backed PDF were uploaded; repository and application links were entered in the form.
